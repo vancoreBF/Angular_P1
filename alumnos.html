@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <title>CRUD table</title>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <table  border="1">
+
+        <tr>
+            <th>EDITAR</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+        </tr>
+        <tr ng-repeat="alumno in alumnos">
+                <td><input type="button" value="EDITAR" ng-click="edit(alumno.id)"></td>
+                <td>{{alumno.nombre}}</td>
+                <td>{{alumno.apellido}}</td>
+        </tr>
+    </table>
+
+
+    <button ng-click="add()">AÑADIR NUEVO ALUMNO</button>
+    
+    <form ng-show="visible">
+        <h1>{{accion}}</h1>
+        <p>
+            <label>
+            Nombre: <input type="text" ng-model="nomb">
+            </label>
+        </p>
+        <p>
+            <label>
+                Apellido: <input type="text" ng-model="ape">
+            </label>
+        </p>
+        <p>
+            <label>
+                Contraseña:<input type="password" ng-model="passw1">
+            </label>
+        </p>
+
+        <p>
+            <label>
+                Repetir Contraseña: <input type="password" ng-model="passw2">
+            </label>
+        </p>
+
+        <input type="button" value="CREATE" ng-click="agregar(nomb,ape)">
+        <input type="reset" value="CLEAN">
+        <input type="button" value="CLOSE VIEW" ng-click="close()">
+    </form>
+
+
+    <script src="index.js"></script>
+    
+</body>
+</html>
